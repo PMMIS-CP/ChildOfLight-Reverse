@@ -1,0 +1,19 @@
+sub_4084D0  UbiArt_WinMain              WinMain
+sub_4017E0	UbiArt_InitEngineContext	Initializes the UbiArt engine context structure (VTable, flags, TLS) and calls internal setup routine.
+sub_407070	GetUTF8BufferSize	        Calculates required buffer size (in bytes) to convert a UTF-16 string to UTF-8, including null terminator. Handles surrogate pairs.
+sub_4070E0	ConvertUTF16toUTF8	        Converts a UTF-16 string to UTF-8 and writes up to a3 bytes into destination buffer. Stops when buffer full or string ends.
+sub_406220	SetRendererString	        Copies a string (e.g., "directx9") into a dynamic buffer within the graphics settings structure. Manages memory allocation.
+sub_8A4650	ReleaseEngineResource	    Decrements a reference count using atomic operations; if count reaches zero, releases associated engine resource.
+sub_8A1DA0	UbiArt_Shutdown	            Performs final cleanup and deallocation of engine resources. Checks TLS and internal flags to choose correct shutdown path.
+sub_401FA0  UbiArt_EngineMain           Main engine entry point: initializes graphics (DirectX9), loads world data, sets up input, sound, and runs the game loop. Handles version check and shutdown. NOTE: The main game loop is likely inside one of the virtual functions called via `a3` (a VTable-like structure). Frequent calls like (*(void (__thiscall **)(_DWORD *))(*a3 + 36))(a3) are virtual method invocations. These will need deeper analysis to locate the actual render/update loop.
+
+
+
+
+
+
+
+
+
+
+
